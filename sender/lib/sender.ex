@@ -1,12 +1,12 @@
 defmodule Sender do
   @moduledoc false
 
-  def send_email("hello@world.com" = email), do: raise("Oops, couldn't send email to #{email}!")
+  def send_email("hello@world.com" = _email), do: :error
 
   def send_email(email) do
     Process.sleep(3000)
     IO.puts("Email to #{email} sent")
-    {:ok, "email_sent"}
+    :ok
   end
 
   def notify_all(emails) do
